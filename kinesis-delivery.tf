@@ -58,6 +58,16 @@ resource "aws_kinesis_firehose_delivery_stream" "datadog" {
 
     request_configuration {
       content_encoding = "GZIP"
+
+      common_attributes {
+        name  = "stack"
+        value = data.ns_workspace.this.stack_name
+      }
+
+      common_attributes {
+        name  = "env"
+        value = data.ns_workspace.this.env_name
+      }
     }
   }
 }
