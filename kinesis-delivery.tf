@@ -41,8 +41,8 @@ resource "aws_kinesis_firehose_delivery_stream" "datadog" {
   s3_configuration {
     bucket_arn         = aws_s3_bucket.failed_log_delivery.arn
     role_arn           = aws_iam_role.log_delivery.arn
-    buffer_size        = 5
-    buffer_interval    = 300
+    buffer_size        = 1
+    buffer_interval    = 60
     compression_format = "GZIP"
   }
 
@@ -50,9 +50,9 @@ resource "aws_kinesis_firehose_delivery_stream" "datadog" {
     url                = local.kinesis_log_destinations[var.region]
     name               = "Datadog"
     access_key         = var.api_key
-    buffering_size     = 5
-    buffering_interval = 300
-    retry_duration     = 300
+    buffering_size     = 1
+    buffering_interval = 60
+    retry_duration     = 60
     role_arn           = aws_iam_role.log_delivery.arn
     s3_backup_mode     = "FailedDataOnly"
 
