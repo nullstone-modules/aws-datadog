@@ -13,8 +13,12 @@ locals {
 
 resource "aws_s3_bucket" "failed_log_delivery" {
   bucket        = "${local.resource_name}-failed-log-delivery"
-  acl           = "private"
   force_destroy = true
+}
+
+resource "aws_s3_bucket_acl" "failed_log_delivery" {
+  bucket = aws_s3_bucket.failed_log_delivery.id
+  acl    = "private"
 }
 
 resource "aws_iam_role" "log_delivery" {
