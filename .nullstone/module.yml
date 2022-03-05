@@ -1,0 +1,11 @@
+org_name: nullstone
+name: aws-datadog
+friendly_name: Datadog
+description: Creates a datastore to automatically emit application logs/telemetry
+category: datastore
+type: datadog/aws
+appCategories: []
+layer: database
+is_public: true
+provider_types:
+    - aws
