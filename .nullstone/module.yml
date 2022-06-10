@@ -3,6 +3,7 @@ name: aws-datadog
 friendly_name: Datadog
 description: Creates a datastore to automatically emit application logs/telemetry
 category: datastore
+platform: datadog
 type: datadog/aws
 appCategories: []
 layer: database
