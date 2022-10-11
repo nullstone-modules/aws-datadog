@@ -1,3 +1,8 @@
+output "datadog_region" {
+  value       = var.region
+  description = "string ||| The configured Datadog region for this datadog account."
+}
+
 output "api_key_secret_id" {
   value       = aws_secretsmanager_secret.api_key.id
   description = "string ||| The ID of the secret containing the Datadog API key"
