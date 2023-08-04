@@ -42,14 +42,6 @@ resource "aws_kinesis_firehose_delivery_stream" "datadog" {
   tags        = local.tags
   destination = "http_endpoint"
 
-  s3_configuration {
-    bucket_arn         = aws_s3_bucket.failed_log_delivery.arn
-    role_arn           = aws_iam_role.log_delivery.arn
-    buffer_size        = 1
-    buffer_interval    = 60
-    compression_format = "GZIP"
-  }
-
   http_endpoint_configuration {
     url                = local.kinesis_log_destinations[var.region]
     name               = "Datadog"
@@ -59,6 +51,14 @@ resource "aws_kinesis_firehose_delivery_stream" "datadog" {
     retry_duration     = 60
     role_arn           = aws_iam_role.log_delivery.arn
     s3_backup_mode     = "FailedDataOnly"
+
+    s3_configuration {
+      bucket_arn         = aws_s3_bucket.failed_log_delivery.arn
+      role_arn           = aws_iam_role.log_delivery.arn
+      buffer_size        = 1
+      buffer_interval    = 60
+      compression_format = "GZIP"
+    }
 
     request_configuration {
       content_encoding = "GZIP"
