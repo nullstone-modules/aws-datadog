@@ -17,8 +17,18 @@ resource "aws_s3_bucket" "failed_log_delivery" {
 }
 
 resource "aws_s3_bucket_acl" "failed_log_delivery" {
+  depends_on = [aws_s3_bucket_ownership_controls.default]
+
   bucket = aws_s3_bucket.failed_log_delivery.id
   acl    = "private"
+}
+
+resource "aws_s3_bucket_ownership_controls" "default" {
+  bucket = aws_s3_bucket.failed_log_delivery.id
+
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
 }
 
 resource "aws_iam_role" "log_delivery" {
