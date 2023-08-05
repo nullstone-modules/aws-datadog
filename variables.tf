@@ -1,7 +1,7 @@
 variable "region" {
-  description = "Datadog region to deliver logs/metrics. Choices: 'us', 'eu', or 'gov'."
+  description = "Datadog region to deliver logs/metrics. Choices: 'us1', 'us3', 'us5', 'eu', or 'gov'."
   type        = string
-  default     = "us"
+  default     = "us1"
 }
 
 variable "api_key" {
