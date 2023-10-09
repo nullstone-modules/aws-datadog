@@ -23,14 +23,21 @@ output "app_key_secret_name" {
   description = "string ||| The name of the secret containing the Datadog App key"
 }
 
+// Deprecated
+// Use logs_delivery_stream_arn instead
 output "delivery_stream_arn" {
   value       = aws_kinesis_firehose_delivery_stream.datadog.arn
-  description = "string ||| The ARN of the kinesis firehose delivery stream that will forward to Datadog"
+  description = "string ||| (Deprecated) The ARN of the kinesis firehose delivery stream that will forward logs to Datadog"
+}
+
+output "logs_delivery_stream_arn" {
+  value       = aws_kinesis_firehose_delivery_stream.datadog.arn
+  description = "string ||| The ARN of the kinesis firehose delivery stream that will forward logs to Datadog"
 }
 
 output "delivery_role_arn" {
   value       = aws_iam_role.log_delivery.arn
-  description = "string ||| The ARN of the IAM Role that has permission to deliver logs to the kinesis firehose delivery stream"
+  description = "string ||| The ARN of the IAM Role that has permission to deliver logs and metrics to both kinesis firehose deilvery streams"
 }
 
 output "failed_delivery_bucket_arn" {
