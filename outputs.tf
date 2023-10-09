@@ -35,6 +35,11 @@ output "logs_delivery_stream_arn" {
   description = "string ||| The ARN of the kinesis firehose delivery stream that will forward logs to Datadog"
 }
 
+output "metrics_delivery_stream_arn" {
+  value = aws_kinesis_firehose_delivery_stream.metrics.arn
+  description = "string ||| The ARN of the kinesis firehose delivery stream that will forward metrics to Datadog"
+}
+
 output "delivery_role_arn" {
   value       = aws_iam_role.log_delivery.arn
   description = "string ||| The ARN of the IAM Role that has permission to deliver logs and metrics to both kinesis firehose deilvery streams"
