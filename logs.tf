@@ -1,6 +1,6 @@
 locals {
   kinesis_log_destinations = tomap({
-    us1  = "https://aws-kinesis-http-intake.logs.datadoghq.com/v1/input"
+    us1 = "https://aws-kinesis-http-intake.logs.datadoghq.com/v1/input"
     us3 = "https://aws-kinesis-http-intake.logs.us3.datadoghq.com/api/v2/logs?dd-protocol=aws-kinesis-firehose"
     us5 = "https://aws-kinesis-http-intake.logs.us5.datadoghq.com/api/v2/logs?dd-protocol=aws-kinesis-firehose"
     eu  = "https://aws-kinesis-http-intake.logs.datadoghq.eu/v1/input"

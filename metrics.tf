@@ -1,9 +1,11 @@
 locals {
   kinesis_metric_destinations = tomap({
-    us  = "https://awsmetrics-intake.datadoghq.com/v1/input"
+    us1 = "https://awsmetrics-intake.datadoghq.com/v1/input"
+    us3 = "https://awsmetrics-intake.datadoghq.com/v1/input"
     us5 = "https://event-platform-intake.us5.datadoghq.com/api/v2/awsmetrics?dd-protocol=aws-kinesis-firehose"
     eu  = "https://awsmetrics-intake.datadoghq.eu/v1/input"
     ap1 = "https://event-platform-intake.ap1.datadoghq.com/api/v2/awsmetrics?dd-protocol=aws-kinesis-firehose"
+    gov = "https://awsmetrics-intake.ddog-gov.com/v1/input"
   })
 }
 

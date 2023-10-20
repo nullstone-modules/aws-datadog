@@ -1,5 +1,5 @@
 variable "region" {
-  description = "Datadog region to deliver logs/metrics. Choices: 'us1', 'us3', 'us5', 'eu', or 'gov'."
+  description = "Datadog region to deliver logs/metrics. Choices: 'us1', 'us3', 'us5', 'eu', 'ap1', or 'gov'."
   type        = string
   default     = "us1"
 }
