@@ -4,12 +4,8 @@ locals {
     us3 = "https://aws-kinesis-http-intake.logs.us3.datadoghq.com/api/v2/logs?dd-protocol=aws-kinesis-firehose"
     us5 = "https://aws-kinesis-http-intake.logs.us5.datadoghq.com/api/v2/logs?dd-protocol=aws-kinesis-firehose"
     eu  = "https://aws-kinesis-http-intake.logs.datadoghq.eu/v1/input"
+    ap1 = "https://aws-kinesis-http-intake.logs.ap1.datadoghq.com/api/v2/logs?dd-protocol=aws-kinesis-firehose"
     gov = "https://aws-kinesis-http-intake.logs.ddog-gov.com/v1/input"
-  })
-
-  kinesis_metric_destinations = tomap({
-    us = "https://awsmetrics-intake.datadoghq.com/v1/input"
-    eu = "https://awsmetrics-intake.datadoghq.eu/v1/input"
   })
 }
 
